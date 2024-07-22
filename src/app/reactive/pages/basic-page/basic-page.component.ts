@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './basic-page.component.html',
   styles: ``,
 })
-export class BasicPageComponent {
+export class BasicPageComponent implements OnInit {
   // criando um formGroup : nescessita no seu modulo o reactive formModule
   // public myForm: FormGroup = new FormGroup({
   //  name: new FormControl(''),
@@ -22,9 +22,16 @@ export class BasicPageComponent {
 
   constructor(private fb: FormBuilder) {}
 
+  ngOnInit(): void {
+    this.myForm.reset();
+  }
+
   onSave(): void {
     if ( this.myForm.invalid ) return;
     console.log(this.myForm.value);
+
+    // restaurando o form a seu estado original
+    this.myForm.reset();
   }
 
 }
