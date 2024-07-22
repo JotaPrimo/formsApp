@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicPageComponent } from './pages/basic-page/basic-page.component';
-import { DynamicPageComponent } from './pages/dynamic-page/dynamic-page.component';
-import { SwitchesPageComponent } from './pages/switches-page/switches-page.component';
+
+// imports
+import { BasicPageComponent, DynamicPageComponent, SwitchesPageComponent } from './pages/index';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'basic', component: BasicPageComponent },
       { path: 'dynamic', component: DynamicPageComponent },
-      { path: 'switches', component: BasicPageComponent },
+      { path: 'switches', component: SwitchesPageComponent },
       { path: '**', redirectTo: 'basic' }
     ]
   }
